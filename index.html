@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Instituto NeuroTEA — Apresentação</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f6f0ea; /* paper */
+        --accent: #cfe9e0; /* mint */
+        --accent-dark: #9fd0c6;
+        --gold: #d4b86a;
+        --text: #111;
+        --muted: #6b6b6b;
+        --container: 1100px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        font-family: "Quicksand", system-ui, Segoe UI, Arial;
+        color: var(--text);
+        background: linear-gradient(180deg, var(--bg), #fff);
+      }
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 60;
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(6px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      }
+      .nav-wrap {
+        max-width: var(--container);
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .logo {
+        width: 58px;
+        height: 58px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, var(--accent), #f7dfe0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Playfair Display";
+        font-weight: 700;
+        color: var(--text);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      }
+      .brand h1 {
+        margin: 0;
+        font-family: "Playfair Display";
+        font-size: 18px;
+        letter-spacing: 0.6px;
+      }
+      nav ul {
+        display: flex;
+        gap: 18px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      nav a {
+        display: inline-block;
+        padding: 8px 10px;
+        border-radius: 8px;
+        text-decoration: none;
+        color: var(--text);
+        font-weight: 600;
+      }
+      nav a.active {
+        background: var(--accent-dark);
+        color: #023;
+      }
+      .cta {
+        padding: 8px 14px;
+        border-radius: 8px;
+        background: var(--gold);
+        color: #fff;
+        font-weight: 700;
+      }
+      .hero {
+        max-width: var(--container);
+        margin: 28px auto;
+        padding: 36px;
+        background: linear-gradient(
+          180deg,
+          rgba(159, 208, 198, 0.12),
+          rgba(247, 223, 224, 0.12)
+        );
+        border-radius: 18px;
+        display: flex;
+        gap: 28px;
+        align-items: center;
+      }
+      .hero-left {
+        flex: 1;
+      }
+      .hero h2 {
+        font-family: "Playfair Display";
+        font-size: 40px;
+        margin: 6px 0;
+      }
+      .hero p {
+        margin: 14px 0 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .hero-right {
+        width: 320px;
+        min-width: 220px;
+      }
+      .hero-card {
+        background: #fff;
+        border-radius: 14px;
+        padding: 8px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+      }
+      .hero-card img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+      .section {
+        max-width: var(--container);
+        margin: 30px auto;
+        padding: 28px;
+      }
+      .section h3 {
+        font-family: "Playfair Display";
+        font-size: 32px;
+        margin: 6px 0;
+      }
+      .lead {
+        color: var(--muted);
+        line-height: 1.8;
+        font-size: 18px;
+      }
+      .team-grid {
+        display: flex;
+        gap: 26px;
+        align-items: flex-start;
+      }
+      .member {
+        background: #fff;
+        padding: 18px;
+        border-radius: 12px;
+        flex: 1;
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+      }
+      .member img {
+        width: 160px;
+        height: 160px;
+        border-radius: 12px;
+        object-fit: cover;
+      }
+      .member .info h4 {
+        margin: 0;
+        font-family: "Playfair Display";
+      }
+      .member .info p {
+        margin: 8px 0 0;
+        color: var(--muted);
+      }
+      .columns {
+        display: flex;
+        gap: 26px;
+      }
+      .col {
+        flex: 1;
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+      }
+      footer {
+        max-width: var(--container);
+        margin: 36px auto;
+        padding: 18px;
+        color: var(--muted);
+        text-align: center;
+      }
+      @media (max-width: 900px) {
+        .hero {
+          flex-direction: column;
+        }
+        .hero-right {
+          width: 100%;
+        }
+        .team-grid {
+          flex-direction: column;
+        }
+        .member {
+          flex-direction: row;
+        }
+        .member img {
+          width: 120px;
+          height: 120px;
+        }
+        nav ul {
+          display: none;
+        }
+        .mobile-toggle {
+          display: block;
+        }
+      }
+      @media (max-width: 600px) {
+        .hero h2 {
+          font-size: 28px;
+        }
+        .member {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .member img {
+          width: 100%;
+          height: 220px;
+          border-radius: 10px;
+        }
+        .member .info {
+          width: 100%;
+        }
+        .columns {
+          flex-direction: column;
+        }
+        .nav-wrap {
+          padding: 10px;
+        }
+      }
+      .mobile-toggle {
+        display: none;
+        border: none;
+        background: transparent;
+        font-size: 20px;
+      }
+      .mobile-menu {
+        position: fixed;
+        right: 16px;
+        top: 70px;
+        background: #fff;
+        padding: 12px;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        display: none;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .mobile-menu a {
+        padding: 8px 12px;
+      }
+      .show {
+        display: flex;
+      }
+      .muted {
+        color: var(--muted);
+      }
+      .center {
+        text-align: center;
+      }
+      .contato {
+        text-align: center;
+        padding: 80px 20px;
+        background-color: #f5f5f5;
+      }
+      .contatos-whatsapp {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        max-width: 400px;
+        margin: 30px auto 0;
+      }
+      .btn-whatsapp {
+        display: inline-block;
+        background-color: #25d366;
+        color: white;
+        text-decoration: none;
+        padding: 14px 20px;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+      .btn-whatsapp:hover {
+        background-color: #1ebe5b;
+        transform: scale(1.03);
+      }
+
+.hero-card {
+  background:#fff;
+  border-radius:14px;
+  padding:8px;
+  box-shadow:0 8px 30px rgba(0,0,0,0.06);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+
+      @media (max-width: 900px) {
+        .hero-card img {
+          max-height: none;
+          height: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="nav-wrap">
+        <div class="brand">
+          <div class="logo">NT</div>
+          <div>
+            <h1>Instituto NeuroTEA</h1>
+            <div class="muted" style="font-size: 12px">
+              Ciência e sensibilidade no desenvolvimento infantil
+            </div>
+          </div>
+        </div>
+        <nav>
+          <ul id="desktop-nav">
+            <li><a href="#inicio" class="nav-link active">INÍCIO</a></li>
+            <li><a href="#quem" class="nav-link">QUEM SOMOS</a></li>
+            <li><a href="#equipe" class="nav-link">EQUIPE</a></li>
+            <li>
+              <a href="#acreditamos" class="nav-link">NO QUE ACREDITAMOS</a>
+            </li>
+            <li><a href="#vem" class="nav-link">O QUE VEM POR AÍ</a></li>
+            <li><a href="#contato" class="nav-link cta">CONTATO</a></li>
+          </ul>
+        </nav>
+        <button class="mobile-toggle" id="toggle">☰</button>
+        <div class="mobile-menu" id="mobileMenu">
+          <a href="#inicio" class="nav-link">INÍCIO</a>
+          <a href="#quem" class="nav-link">QUEM SOMOS</a>
+          <a href="#equipe" class="nav-link">EQUIPE</a>
+          <a href="#acreditamos" class="nav-link">NO QUE ACREDITAMOS</a>
+          <a href="#vem" class="nav-link">O QUE VEM POR AÍ</a>
+          <a href="#contato" class="nav-link">CONTATO</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- BEM-VINDO -->
+      <section id="inicio" class="hero" aria-label="Bem-vindos">
+        <div class="hero-left">
+          <h2>BEM-VINDOS</h2>
+          <p class="lead">
+            Criamos o Instituto NeuroTEA para compartilhar informação de
+            qualidade sobre desenvolvimento infantil, Análise do Comportamento e
+            Transtorno do Espectro Autista de forma acolhedora e baseada em
+            evidência. Nosso objetivo é oferecer conteúdos confiáveis, práticos
+            e acessíveis para famílias e profissionais.
+          </p>
+        </div>
+        <div class="hero-right">
+          <div class="hero-card">
+            <img src="Capa.png" alt="Instituto NeuroTEA — capa" />
+          </div>
+        </div>
+      </section>
+
+      <!-- QUEM SOMOS -->
+      <section id="quem" class="section" aria-label="Quem somos">
+        <h3>QUEM SOMOS?</h3>
+        <div class="hero-card" style="padding: 24px">
+          <p class="lead">
+            Somos psicólogas apaixonadas pelo desenvolvimento infantil e pela
+            análise do comportamento. Criamos o Instituto NeuroTEA para promover
+            o aprendizado de forma acolhedora e baseada em evidência, tornando o
+            conhecimento leve e transformador.
+          </p>
+        </div>
+      </section>
+
+      <!-- EQUIPE -->
+<section id="equipe" class="section" aria-label="Equipe">
+  <h3>EQUIPE</h3>
+  <div class="team-grid">
+    <!-- Raiane -->
+    <div class="member">
+      <picture>
+        <!-- versão mobile -->
+        <source media="(max-width: 600px)" srcset="pequeno-raiane.jpg">
+        <!-- versão desktop -->
+        <img src="raiane.jpg" alt="Raiane Freitas">
+      </picture>
+      <div class="info">
+        <h4>Raiane Freitas</h4>
+        <p class="muted">
+          Psicóloga (UNESC). Neuropsicóloga. Encantada pela infância, pelos processos de desenvolvimento e avaliação neuropsicológica.
+        </p>
+      </div>
+    </div>
+
+    <!-- Vitória -->
+    <div class="member">
+      <picture>
+        <!-- versão mobile -->
+        <source media="(max-width: 600px)" srcset="pequeno-vitoria.jpg">
+        <!-- versão desktop -->
+        <img src="vitoria.jpg" alt="Vitória Favoretti">
+      </picture>
+      <div class="info">
+        <h4>Vitória Favoretti</h4>
+        <p class="muted">
+          Psicóloga (UNESC). Especializando em Neuropsicologia e Análise do Comportamento Aplicada. Apaixonada pelo desenvolvimento infantil e avaliação neuropsicológica.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      <!-- O QUE VEM POR AÍ -->
+      <section id="vem" class="section" aria-label="O que vem por aí">
+        <h3>O QUE VEM POR AÍ?</h3>
+        <div class="hero-card" style="padding: 24px">
+          <p class="lead">
+            Conteúdos acessíveis sobre: Análise do Comportamento Aplicada,
+            Transtorno do Espectro Autista, Desenvolvimento Infantil,
+            Neuropsicologia, dicas práticas, informações confiáveis, cursos e
+            capacitações.
+          </p>
+        </div>
+      </section>
+
+      <!-- CONTATO -->
+      <section id="contato" class="contato">
+        <h2>Contatos</h2>
+        <p>Entre em contato diretamente pelo WhatsApp:</p>
+        <div class="contatos-whatsapp">
+          <a
+            href="https://wa.me/5527996025802"
+            target="_blank"
+            class="btn-whatsapp"
+            >📱 Raiane - Psicóloga</a
+          >
+          <a
+            href="https://wa.me/5527999872848"
+            target="_blank"
+            class="btn-whatsapp"
+            >📱 Vitória - Psicóloga</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="muted">
+        © Instituto NeuroTEA — Conteúdo com base em evidências. Desenvolvido
+        para apresentação e divulgação.
+      </div>
+    </footer>
+
+    <script>
+      const links = document.querySelectorAll(".nav-link");
+      function setActive(target) {
+        links.forEach((l) => l.classList.remove("active"));
+        target.classList.add("active");
+      }
+      links.forEach((a) => {
+        a.addEventListener("click", (e) => {
+          e.preventDefault();
+          const href = a.getAttribute("href");
+          const el = document.querySelector(href);
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+          document.getElementById("mobileMenu").classList.remove("show");
+          setActive(a);
+        });
+      });
+      const sections = document.querySelectorAll("main section");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const id = entry.target.id;
+              const activeLink = document.querySelector(
+                '.nav-link[href="#' + id + '"]'
+              );
+              if (activeLink) setActive(activeLink);
+            }
+          });
+        },
+        { threshold: 0.45 }
+      );
+      sections.forEach((s) => observer.observe(s));
+      const toggle = document.getElementById("toggle");
+      toggle.addEventListener("click", () => {
+        document.getElementById("mobileMenu").classList.toggle("show");
+      });
+    </script>
+  </body>
+</html>
