@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Neuroteia</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #121212;
+      color: #fff;
+    }
+
+    .login-container {
+      background: linear-gradient(180deg, #1f1f2b, #1a1a25);
+      padding: 40px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    .login-container img {
+      width: 60px;
+      margin-bottom: 20px;
+    }
+
+    .login-container h1 {
+      color: #8a2be2;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 8px;
+      background: #2a2a3b;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .login-container input::placeholder {
+      color: #ccc;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 12px;
+      background: #8a2be2;
+      color: #fff;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .login-container button:hover {
+      background: #7a1fd1;
+    }
+
+    @media (max-width: 500px) {
+      .login-container {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <img src="Capa.png" alt="Logo NeuroTEA">
+    <h1>Login NeuroTEA</h1>
+    <input type="email" placeholder="E-mail" required>
+    <input type="password" placeholder="Senha" required>
+    <button>Entrar</button>
+  </div>
+</body>
+</html>

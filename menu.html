@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Neuroteia Plataforma</title>
+  <title>NeuroTEA Plataforma</title>
   <style>
     /* ----------------- RESET ----------------- */
     * {
@@ -173,7 +173,7 @@
       background: #121212;
       display: flex;
       flex-direction: column;
-      align-items: center; /* centraliza o conteúdo horizontalmente */
+      align-items: center;
       justify-content: flex-start;
     }
 
@@ -202,10 +202,12 @@
       background: #000;
     }
 
-    .video-container iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
+    /* Wistia Player placeholder */
+    wistia-player[media-id='4m3ry7pacu']:not(:defined) {
+      background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/4m3ry7pacu/swatch');
+      display: block;
+      filter: blur(5px);
+      padding-top: 56.6%;
     }
 
     /* ----------------- MEDIA QUERIES ----------------- */
@@ -232,6 +234,11 @@
     }
 
   </style>
+
+  <!-- ----------------- WISTIA PLAYER ----------------- -->
+  <script src="https://fast.wistia.com/player.js" async></script>
+  <script src="https://fast.wistia.com/embed/4m3ry7pacu.js" async type="module"></script>
+
 </head>
 <body>
 
@@ -240,7 +247,7 @@
     <div>
       <div class="logo">
         <img src="Capa.png" alt="NT Logo">
-        <span>Neuroteia</span>
+        <span>NeuroTEA</span>
       </div>
       <nav>
         <ul>
@@ -269,12 +276,12 @@
     </header>
 
     <main>
-      <h1>Bem-vindo à plataforma Neuroteia 🧠</h1>
+      <h1>Bem-vindo à plataforma NeuroTEA 🧠</h1>
       <p>Aqui você poderá acessar seus cursos, aulas e e-books.</p>
 
       <!-- ----------------- VÍDEO ----------------- -->
       <div class="video-container">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PCai1bYxAx8?si=krOp5BX40rJ4b-PE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <wistia-player media-id="4m3ry7pacu" aspect="0.5660377358490566"></wistia-player>
       </div>
     </main>
   </div>
