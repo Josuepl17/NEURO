@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neuroteia Plataforma</title>
+  <style>
+    /* ----------------- RESET ----------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      background: #121212;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* ----------------- MENU LATERAL ----------------- */
+    .menu {
+      width: 260px;
+      background: linear-gradient(180deg, #1f1f2b, #1a1a25);
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.35s ease;
+      z-index: 1000;
+    }
+
+    .menu nav ul {
+      list-style: none;
+      padding: 20px 0;
+    }
+
+    .menu nav li {
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+      border-radius: 8px;
+    }
+
+    .menu nav li:hover {
+      background: #2a2a3b;
+    }
+
+    .menu nav li i {
+      font-size: 1.3rem;
+      color: #8a2be2;
+      min-width: 24px;
+      text-align: center;
+    }
+
+    .menu nav li span {
+      white-space: nowrap;
+    }
+
+    .submenu {
+      display: none;
+      flex-direction: column;
+      padding-left: 36px;
+      margin-top: 6px;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .submenu li {
+      padding: 8px 0;
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    .menu .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 20px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #8a2be2;
+    }
+
+    .menu .logo img {
+      width: 40px;
+    }
+
+    .menu .sair {
+      padding: 20px;
+      border-top: 1px solid #2a2a3b;
+      cursor: pointer;
+      color: #ff4b4b;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* ----------------- CONTEÚDO PRINCIPAL ----------------- */
+    .conteudo {
+      flex: 1;
+      margin-left: 260px;
+      display: flex;
+      flex-direction: column;
+      transition: margin-left 0.35s ease;
+    }
+
+    /* ----------------- CABEÇALHO ----------------- */
+    header {
+      background: #181820;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 10px 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+      position: sticky;
+      top: 0;
+      z-index: 500;
+    }
+
+    .perfil {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .perfil img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 2px solid #8a2be2;
+    }
+
+    /* ----------------- BOTÃO MENU ----------------- */
+    .botao-menu {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #1f1f2b;
+      border: none;
+      color: #8a2be2;
+      font-size: 1.5rem;
+      border-radius: 8px;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      z-index: 1100;
+      display: none; /* só aparece em mobile */
+      align-items: center;
+      justify-content: center;
+      transition: left 0.35s ease, transform 0.3s;
+    }
+
+    .botao-menu:hover {
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    /* ----------------- MAIN ----------------- */
+    main {
+      flex: 1;
+      padding: 30px;
+      background: #121212;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* centraliza o conteúdo horizontalmente */
+      justify-content: flex-start;
+    }
+
+    main h1 {
+      color: #8a2be2;
+      font-size: 2rem;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    main p {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* ----------------- VÍDEO RESPONSIVO ----------------- */
+    .video-container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      max-width: 800px;
+      aspect-ratio: 16 / 9;
+      margin-top: 20px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* ----------------- MEDIA QUERIES ----------------- */
+    @media (max-width: 768px) {
+      .menu {
+        transform: translateX(-100%);
+      }
+
+      .menu.ativo {
+        transform: translateX(0);
+      }
+
+      .conteudo {
+        margin-left: 0;
+      }
+
+      .botao-menu {
+        display: flex;
+      }
+
+      .menu.ativo ~ .conteudo header .botao-menu {
+        left: 260px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ----------------- MENU LATERAL ----------------- -->
+  <aside class="menu" id="menu">
+    <div>
+      <div class="logo">
+        <img src="Capa.png" alt="NT Logo">
+        <span>Neuroteia</span>
+      </div>
+      <nav>
+        <ul>
+          <li id="cursoBtn"><i>📚</i><span>Cursos</span></li>
+          <ul class="submenu" id="submenuCurso">
+            <li>Aula 1</li>
+            <li>Aula 2</li>
+            <li>E-book 1</li>
+          </ul>
+          <li><i>🎥</i><span>Aulas</span></li>
+          <li><i>📖</i><span>E-books</span></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="sair"><i>🚪</i><span>Sair</span></div>
+  </aside>
+
+  <!-- ----------------- CONTEÚDO ----------------- -->
+  <div class="conteudo">
+    <header>
+      <button class="botao-menu" id="toggleMenu">☰</button>
+      <div class="perfil">
+        <span>Josué</span>
+        <img src="https://i.ibb.co/NLQdJyt/user.png" alt="Perfil">
+      </div>
+    </header>
+
+    <main>
+      <h1>Bem-vindo à plataforma Neuroteia 🧠</h1>
+      <p>Aqui você poderá acessar seus cursos, aulas e e-books.</p>
+
+      <!-- ----------------- VÍDEO ----------------- -->
+      <div class="video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PCai1bYxAx8?si=krOp5BX40rJ4b-PE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </main>
+  </div>
+
+  <!-- ----------------- SCRIPT ----------------- -->
+  <script>
+    const toggle = document.getElementById("toggleMenu");
+    const menu = document.getElementById("menu");
+
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("ativo");
+      toggle.textContent = menu.classList.contains("ativo") ? "✕" : "☰";
+    });
+
+    document.addEventListener("click", (e) => {
+      if (window.innerWidth <= 768 && menu.classList.contains("ativo")) {
+        if (!menu.contains(e.target) && e.target !== toggle) {
+          menu.classList.remove("ativo");
+          toggle.textContent = "☰";
+        }
+      }
+    });
+
+    const cursoBtn = document.getElementById("cursoBtn");
+    const submenu = document.getElementById("submenuCurso");
+
+    cursoBtn.addEventListener("click", () => {
+      if (submenu.style.display === "flex") {
+        submenu.style.opacity = 0;
+        setTimeout(() => submenu.style.display = "none", 300);
+      } else {
+        submenu.style.display = "flex";
+        setTimeout(() => submenu.style.opacity = 1, 10);
+      }
+    });
+  </script>
+</body>
+</html>
