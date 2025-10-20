@@ -171,9 +171,48 @@
     .botao-whatsapp:hover { background-color: #1ebe5b; transform: scale(1.02); box-shadow: 0 6px 12px rgba(37, 211, 102, 0.6); }
 
     .centro { text-align: center; }
+
+
+.botao-instagram {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+  color: white;
+  border-radius: 50%;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: 1000;
+}
+
+.botao-instagram:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+}
+
   </style>
 </head>
 <body>
+
+
+  <a 
+  href="https://www.instagram.com/institutoneuro.tea/" 
+  target="_blank" 
+  class="botao-instagram"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" 
+       viewBox="0 0 24 24" 
+       fill="white" 
+       width="28px" 
+       height="28px">
+    <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.75-.75a.75.75 0 100 1.5.75.75 0 000-1.5z"/>
+  </svg>
+</a>
 
 <div class="fundo-animado">
   <div class="bolha"></div>
